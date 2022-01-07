@@ -1,18 +1,22 @@
 import type MarkdownIt from "markdown-it/lib"
-import type StateCore from "markdown-it/lib/rules_core/state_core"
+import quizmd from "quizmd"
 
 /**
- * An example plugin that adds a color to paragraphs
+ * A plugin that adds quizmd support
  */
-export default function example_plugin(md: MarkdownIt): void {
-  md.core.ruler.push("example", exampleRule)
-}
-
-function exampleRule(state: StateCore): boolean {
-  for (const token of state.tokens) {
-    if (token.type === "paragraph_open") {
-      token.attrJoin("style", "color:blue;")
+export default function quizmd_plugin(md: MarkdownIt): void {
+  const defaultRenderer = md.renderer.rules.fence?.bind(md.renderer.rules)
+  md.renderer.rules.fence = (tokens, idx, opts, env, self): string => {
+    const token = tokens[idx]
+    const code = token.content.trim()
+    if (token.info.trim() === "quizmd") {
+      return `<div class="quizmd" quizmd-processed="true">${quizmd.parse(
+        code.split("\r?\n")
+      )}</div>\n`
     }
+    if (defaultRenderer) {
+      return defaultRenderer(tokens, idx, opts, env, self)
+    }
+    return ""
   }
-  return true
 }

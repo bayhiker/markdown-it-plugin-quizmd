@@ -1,13 +1,17 @@
-test 1
+Square with side
 .
-content
+```quizmd
+square: side=4
+```
 .
-<p style="color:blue;">content</p>
+<div class="quizmd" quizmd-processed="true"><rect width="4" height="4" x="0" y="0" fill="none" stroke-width="0.1" stroke="black"/></div>
 .
 
-test 2
+Circle with radius
 .
-*other content*
+```quizmd
+circle: r=4
+```
 .
-<p style="color:blue;"><em>other content</em></p>
+<div class="quizmd" quizmd-processed="true"><circle r="4" cx="5" cy="5" fill="none" stroke-width="0.1" stroke="black"/></div>
 .
