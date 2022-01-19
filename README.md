@@ -8,9 +8,9 @@ As a Node module:
 
 ```javascript
 import MarkdownIt from "markdown-it"
-import markdownItPluginQuizMd from "markdown-it-plugin-quizmd"
+import markdownItPluginQuizMd from "markdown-it-quizmd"
 
-const text = MarkdownIt().use(markdownItPluginQuizMd).render("*a*")
+const text = MarkdownIt().use(markdownItQuizMd).render("*a*")
 ```
 
 In the browser:
@@ -21,12 +21,12 @@ In the browser:
     <head>
         <title>Example Page</title>
         <script src="https://cdn.jsdelivr.net/npm/markdown-it@12/dist/markdown-it.min.js"></script>
-        <script src="https://unpkg.com/markdown-it-plugin-quizmd"></script>
+        <script src="https://unpkg.com/markdown-it-quizmd"></script>
     </head>
     <body>
         <div id="demo"></div>
         <script>
-            const text = window.markdownit().use(window.markdownItPluginQuizMd).render("*a*");
+            const text = window.markdownit().use(window.markdownItQuizMd).render("*a*");
             document.getElementById("demo").innerHTML = text
         </script>
     </body>

@@ -1,9 +1,9 @@
 {
-  "name": "markdown-it-plugin-quizmd",
+  "name": "markdown-it-quizmd",
   "version": "0.0.1",
   "description": "A quizmd plugin for markdown-it",
   "author": "bayhiker@github",
-  "homepage": "https://github.com/bayhiker/markdown-it-plugin-quizmd",
+  "homepage": "https://github.com/bayhiker/markdown-it-quizmd",
   "license": "MIT",
   "keywords": [
     "markdown",
