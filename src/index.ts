@@ -10,13 +10,10 @@ export default function quizmd_plugin(md: MarkdownIt): void {
     const token = tokens[idx]
     const code = token.content.trim()
     if (token.info.trim() === "quizmd") {
-      return `<div class="quizmd" quizmd-processed="true">AAAAAA ${quizmd.parse(
+      return `<div class="quizmd" quizmd-processed="true">${quizmd.parse(
         code.split("\r?\n")
       )}</div>\n`
     }
-    if (defaultRenderer) {
-      return defaultRenderer(tokens, idx, opts, env, self)
-    }
-    return ""
+    return defaultRenderer ? defaultRenderer(tokens, idx, opts, env, self) : ""
   }
 }
