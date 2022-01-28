@@ -69,6 +69,6 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "quizmd": "^0.0.4"
+    "quizmd": "file:../quizmd/dist"
   }
 }
