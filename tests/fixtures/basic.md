@@ -13,5 +13,5 @@ Circle with radius
 circle: r=4
 ```
 .
-<div class="quizmd" quizmd-processed="true"><circle r="4" cx="5" cy="5" fill="none" stroke-width="0.1" stroke="black"/></div>
+<div class="quizmd" quizmd-processed="true"><circle r="4" cx="50" cy="50" fill="none" stroke-width="0.1" stroke="black"/></div>
 .
