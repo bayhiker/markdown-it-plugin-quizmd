@@ -1,6 +1,6 @@
 Square with side
 .
-```quizmd
+```quizmd randomize
 square: side=4
 ```
 .
