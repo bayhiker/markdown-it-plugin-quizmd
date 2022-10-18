@@ -24,23 +24,9 @@ export default function quizmd_plugin(
       return `<div class="quizmd" quizmd-processed="true">${quizmd.parse(
         code.split(/\r?\n/),
         quizMdPluginOptions.variables,
-        getParserOptions(quizMdPluginOptions, quizMdBlockOptions)
+        { ...quizMdPluginOptions.parserOptions, ...quizMdBlockOptions }
       )}</div>\n`
     }
     return defaultRenderer ? defaultRenderer(tokens, idx, opts, env, self) : ""
   }
-}
-
-function getParserOptions(
-  quizMdPluginOptions: QuizMdPluginOptions,
-  quizMdBlockOptions: KvPairs
-): QuizMdParserOptions {
-  // Merge randomize
-  const parserOptions: QuizMdParserOptions = {}
-  if ("randomize" in quizMdBlockOptions) {
-    parserOptions["randomize"] = quizMdBlockOptions["randomize"]
-  } else if ("randomize" in quizMdPluginOptions.parserOptions) {
-    parserOptions["randomize"] = quizMdPluginOptions.parserOptions["randomize"]
-  }
-  return parserOptions
 }
