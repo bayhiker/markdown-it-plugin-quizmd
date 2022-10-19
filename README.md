@@ -1,35 +1,58 @@
 # Markdown-It QuizMD Plugin
 
-Plugin for [markdown-it](https://github.com/markdown-it/markdown-it) to process QuizMD.
+[Markdown-It](https://github.com/markdown-it/markdown-it) plug in to process [QuizMD](https://github.com/bayhiker/quizmd) blocks. QuizMD uses markdown syntax to write quiz problems. For example, the following section generates a problem with three alternative answers
+
+## Install
+
+> npm install markdown-it-quizmd
 
 ## Usage
 
-As a Node module:
+### As a Node module with typescript:
 
-```javascript
+```typescript
 import MarkdownIt from "markdown-it"
 import markdownItPluginQuizMd from "markdown-it-quizmd"
 
-const text = MarkdownIt().use(markdownItQuizMd).render("*a*")
+const text = MarkdownIt().use(markdownItPluginQuizMd, options).render("*a*")
 ```
 
-In the browser:
+`options` parameter is optional. If defined, it is in the following format:
+
+```javascript
+{
+    variables: {name1: value1, ...},
+    parserOptions: {isSolution: true|false, randomize: true|false}
+}
+```
+
+where `isSolution` defaults to false, indicating whether you want to generate problems with the right answer hightlighted. `randomize` defaults to false, indicating whether variables should be replaced with random values.
+
+### As a Node module with typescript:
+
+```javascript
+var md = require("markdown-it")
+var quizMdPlugin = require("markdown-it-quizmd")
+md.use(quizMdPlugin, options)
+```
+
+### In the browser:
 
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Example Page</title>
-        <script src="https://cdn.jsdelivr.net/npm/markdown-it@12/dist/markdown-it.min.js"></script>
-        <script src="https://unpkg.com/markdown-it-quizmd"></script>
-    </head>
-    <body>
-        <div id="demo"></div>
-        <script>
-            const text = window.markdownit().use(window.markdownItQuizMd).render("*a*");
-            document.getElementById("demo").innerHTML = text
-        </script>
-    </body>
+  <head>
+    <title>Example Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@12/dist/markdown-it.min.js"></script>
+    <script src="https://unpkg.com/markdown-it-quizmd"></script>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script>
+      const text = window.markdownit().use(window.markdownItQuizMd).render("*a*")
+      document.getElementById("demo").innerHTML = text
+    </script>
+  </body>
 </html>
 ```
 
@@ -78,17 +101,15 @@ See for example:
 - <https://medium.com/js-imaginea/comparing-bundlers-webpack-rollup-parcel-f8f5dc609cfd>
 - <https://betterprogramming.pub/the-battle-of-bundlers-6333a4e3eda9>
 
-
 [ci-badge]: https://github.com/executablebooks/markdown-it-plugin-template/workflows/CI/badge.svg
 [ci-link]: https://github.com/executablebooks/markdown-it--plugin-template/actions
 [npm-badge]: https://img.shields.io/npm/v/markdown-it-plugin-template.svg
 [npm-link]: https://www.npmjs.com/package/markdown-it-plugin-template
-
-[GitHub Actions]: https://docs.github.com/en/actions
-[GitHub Pages]: https://docs.github.com/en/pages
+[github actions]: https://docs.github.com/en/actions
+[github pages]: https://docs.github.com/en/pages
 [prettier]: https://prettier.io/
 [eslint]: https://eslint.org/
-[Jest]: https://facebook.github.io/jest/
-[Rollup]: https://rollupjs.org
+[jest]: https://facebook.github.io/jest/
+[rollup]: https://rollupjs.org
 [npm]: https://www.npmjs.com
 [unpkg]: https://unpkg.com/
